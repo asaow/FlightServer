@@ -5,6 +5,7 @@
  */
 package com.mycompany.flightserver.service;
 
+import com.mycompany.flightserver.hibernate.HibernateQueries;
 import com.mycompany.flightserver.model.Airport;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class AirportServices {
     
     //Hämtar en flygplats
     public Airport getAirport(int id){
-        return hibernateQueries.getAirport();
+        return hibernateQueries.getAirport(id);
     }
     
 }
