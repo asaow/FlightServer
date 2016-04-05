@@ -5,15 +5,24 @@
  */
 package com.mycompany.flightserver.model;
 
-/**
- *
- * @author Loki
- */
-public class Airport {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@XmlRootElement
+public class Airport implements Serializable{
+    @Id @GeneratedValue
     private int id;
     private String city;
     private String code;
 
+    public Airport(){
+        
+    }
+    
     public int getId() {
         return id;
     }

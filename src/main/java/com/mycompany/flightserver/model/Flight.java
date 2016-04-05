@@ -5,13 +5,17 @@
  */
 package com.mycompany.flightserver.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Loki
- */
-public class Flight {
+@Entity
+@XmlRootElement
+public class Flight implements Serializable {
+    @Id @GeneratedValue
     private int id;
     private Airport fromAirport;
     private Airport toAirport;
@@ -21,6 +25,10 @@ public class Flight {
     private Calendar arrTime;
     private String duration;
     private int nbrOfConnections;
+    
+    public Flight(){
+        
+    }
 
     public int getId() {
         return id;
