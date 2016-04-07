@@ -5,6 +5,8 @@
  */
 package com.mycompany.flightserver;
 
+import com.mycompany.flightserver.model.Airport;
+import com.mycompany.flightserver.service.AirportServices;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

@@ -7,10 +7,11 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/flightdb</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hbm2ddl.auto">create</property>
     <mapping class = "com.mycompany.flightserver.model.Airport"/>
     <mapping class = "com.mycompany.flightserver.model.Booking"/>
-    <mapping class = "com.mycompany.flightserver.model.Flight"/>
-    <mapping class = "com.mycompany.flightserver.model.Person"/>
+
 
   </session-factory>
 </hibernate-configuration>
