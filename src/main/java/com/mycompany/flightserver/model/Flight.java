@@ -6,16 +6,23 @@
 package com.mycompany.flightserver.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
 public class Flight implements Serializable {
-    @Id @GeneratedValue
+
+    @Id
+    @GeneratedValue
     private int id;
     private Airport fromAirport;
     private Airport toAirport;
@@ -25,9 +32,31 @@ public class Flight implements Serializable {
     private Calendar arrTime;
     private String duration;
     private int nbrOfConnections;
-    
-    public Flight(){
-        
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "flights")
+    private Collection<Airport> airports = new ArrayList<Airport>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Collection<Booking> bookings = new ArrayList<Booking>();
+
+    public Collection<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Collection<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public Collection<Airport> getAirports() {
+        return airports;
+    }
+
+    public void setAirports(Collection<Airport> airports) {
+        this.airports = airports;
+    }
+
+    public Flight() {
+
     }
 
     public int getId() {
@@ -53,8 +82,8 @@ public class Flight implements Serializable {
     public void setToAirport(Airport toAirport) {
         this.toAirport = toAirport;
     }
-    
-        public Calendar getDepDate() {
+
+    public Calendar getDepDate() {
         return depDate;
     }
 
@@ -101,5 +130,5 @@ public class Flight implements Serializable {
     public void setNbrOfConnections(int nbrOfConnections) {
         this.nbrOfConnections = nbrOfConnections;
     }
-    
+
 }

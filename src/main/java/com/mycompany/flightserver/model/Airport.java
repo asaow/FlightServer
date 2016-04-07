@@ -6,23 +6,39 @@
 package com.mycompany.flightserver.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Airport implements Serializable{
-    @Id @GeneratedValue
+public class Airport implements Serializable {
+
+    @Id
+    @GeneratedValue
     private int id;
     private String city;
     private String code;
 
-    public Airport(){
-        
+    @ManyToMany
+    private Collection<Flight> flights = new ArrayList<Flight>();
+
+    public Collection<Flight> getFlights() {
+        return flights;
     }
-    
+
+    public void setFlights(Collection<Flight> flights) {
+        this.flights = flights;
+    }
+
+    public Airport() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -30,7 +46,6 @@ public class Airport implements Serializable{
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getCity() {
         return city;
@@ -47,5 +62,5 @@ public class Airport implements Serializable{
     public void setCode(String code) {
         this.code = code;
     }
-    
+
 }

@@ -5,8 +5,8 @@
  */
 package com.mycompany.flightserver;
 
-import com.mycompany.flightserver.model.Airport;
-import com.mycompany.flightserver.service.AirportServices;
+import com.mycompany.flightserver.model.Flight;
+import com.mycompany.flightserver.service.FlightServices;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -19,30 +19,24 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Nanali67
  */
-@Path("/airports")
-public class Airports {
+@Path("/")
+public class Flights {
 
-    AirportServices airportService = new AirportServices();
+    FlightServices flightService = new FlightServices();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Airport> getAirports() {
-        return airportService.getAirports();
+    public List<Flight> getFlights() {
+        System.out.println("inne i flightssss");
+        return flightService.getFlights();
     }
 
     @GET
-    @Path("/{airportId}")
+    @Path("/{flightID}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Airport getAirport(@PathParam("airportId") int airportId) {
-        return airportService.getAirport(airportId);
-
-    }
-    
-    @Path("/{airportId}/flights")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Flights test(){
-        return (new Flights());
+    public Flight getFlight(@PathParam("flightID") int flightID) {
+        return flightService.getFlight(flightID);
     }
 
 }
