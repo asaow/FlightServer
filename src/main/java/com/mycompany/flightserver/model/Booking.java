@@ -5,25 +5,14 @@
  */
 package com.mycompany.flightserver.model;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
-
-
-@Entity
-@XmlRootElement
-public class Booking implements Serializable {
-    
-    @Id @GeneratedValue
+/**
+ *
+ * @author Loki
+ */
+public class Booking {
     private int id;
     private Flight flight;
     private Person person;
-    
-    public Booking(){
-        
-    }
 
     public Person getPerson() {
         return person;

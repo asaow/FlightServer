@@ -6,11 +6,21 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/flightdb</property>
     <property name="hibernate.connection.username">root</property>
+<<<<<<< HEAD
     <property name="hibernate.connection.password">15Mehr1367</property>
     <property name="hibernate.show_sql">true</property>
         <property name="hbm2ddl.auto">create</property>
     <mapping class = "com.mycompany.flightserver.model.Airport"/>
     <mapping class = "com.mycompany.flightserver.model.Booking"/>
      <mapping class = "com.mycompany.flightserver.model.Flight"/>
+=======
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hbm2ddl.auto">create</property>
+    <mapping class = "com.mycompany.flightserver.model.Airport"/>
+    <mapping class = "com.mycompany.flightserver.model.Booking"/>
+
+
+>>>>>>> 1653618de8df96b2c987086da7e3a2eddb34a043
   </session-factory>
 </hibernate-configuration>
