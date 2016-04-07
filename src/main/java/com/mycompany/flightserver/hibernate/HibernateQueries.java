@@ -6,12 +6,12 @@
 package com.mycompany.flightserver.hibernate;
 
 import com.mycompany.flightserver.model.Airport;
-<<<<<<< HEAD
+
 import com.mycompany.flightserver.model.Flight;
 import java.util.Collection;
-=======
+
 import com.mycompany.flightserver.model.Booking;
->>>>>>> 1653618de8df96b2c987086da7e3a2eddb34a043
+
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -55,14 +55,15 @@ public class HibernateQueries {
 
         return airports;
     }
-<<<<<<< HEAD
+
 
     public Flight getFlight(int flightId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
         Flight f = (Flight) session.get(Flight.class, flightId);
-=======
+        return f;
+    }
     
     /**
      * Hämtar en bokning
@@ -76,15 +77,12 @@ public class HibernateQueries {
         session.beginTransaction();
 
         Booking b = (Booking) session.get(Booking.class, bookingId);
->>>>>>> 1653618de8df96b2c987086da7e3a2eddb34a043
+
 
         session.getTransaction().commit();
         session.close();
-
-<<<<<<< HEAD
-        return f;
-
-    }
+        return b;
+     }
 
     public List<Flight> getFlights() {
 
@@ -98,9 +96,6 @@ public class HibernateQueries {
 
     }
 
-=======
-        return b; 
-    }
     
     /**
      * Hämtar alla bokningar
@@ -155,6 +150,5 @@ public class HibernateQueries {
         session.getTransaction().commit();
         session.close();
     }
-   
->>>>>>> 1653618de8df96b2c987086da7e3a2eddb34a043
+
 }
