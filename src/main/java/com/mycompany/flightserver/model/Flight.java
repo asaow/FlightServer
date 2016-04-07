@@ -33,27 +33,27 @@ public class Flight implements Serializable {
     private String duration;
     private int nbrOfConnections;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "flights")
-    private Collection<Airport> airports = new ArrayList<Airport>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Booking> bookings = new ArrayList<Booking>();
-
-    public Collection<Booking> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(Collection<Booking> bookings) {
-        this.bookings = bookings;
-    }
-
-    public Collection<Airport> getAirports() {
-        return airports;
-    }
-
-    public void setAirports(Collection<Airport> airports) {
-        this.airports = airports;
-    }
+//    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "flights")
+//    private Collection<Airport> airports = new ArrayList<Airport>();
+//
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Collection<Booking> bookings = new ArrayList<Booking>();
+//
+//    public Collection<Booking> getBookings() {
+//        return bookings;
+//    }
+//
+//    public void setBookings(Collection<Booking> bookings) {
+//        this.bookings = bookings;
+//    }
+//
+//    public Collection<Airport> getAirports() {
+//        return airports;
+//    }
+//
+//    public void setAirports(Collection<Airport> airports) {
+//        this.airports = airports;
+//    }
 
     public Flight() {
 

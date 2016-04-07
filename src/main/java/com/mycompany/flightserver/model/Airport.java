@@ -24,16 +24,16 @@ public class Airport implements Serializable {
     private String city;
     private String code;
 
-    @ManyToMany
-    private Collection<Flight> flights = new ArrayList<Flight>();
-
-    public Collection<Flight> getFlights() {
-        return flights;
-    }
-
-    public void setFlights(Collection<Flight> flights) {
-        this.flights = flights;
-    }
+//    @ManyToMany
+//    private Collection<Flight> flights = new ArrayList<Flight>();
+//
+//    public Collection<Flight> getFlights() {
+//        return flights;
+//    }
+//
+//    public void setFlights(Collection<Flight> flights) {
+//        this.flights = flights;
+//    }
 
     public Airport() {
 
