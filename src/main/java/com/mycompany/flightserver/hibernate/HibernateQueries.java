@@ -51,7 +51,7 @@ public class HibernateQueries {
         List<Airport> airports = session.createCriteria(Airport.class).list();
 
         session.getTransaction().commit();
-        session.close();
+        //session.close();
 
         return airports;
     }
