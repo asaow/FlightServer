@@ -23,6 +23,7 @@ public class Airport implements Serializable {
     @GeneratedValue
     private int id;
     private String city;
+    private String name;
     private String code;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "airports")
@@ -54,6 +55,14 @@ public class Airport implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCode() {
