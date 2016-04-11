@@ -5,6 +5,7 @@
  */
 package com.mycompany.flightserver.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Entity;
@@ -19,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
-public class Booking {
+public class Booking implements Serializable {
 
     @Id
     @GeneratedValue
