@@ -8,6 +8,7 @@ package com.mycompany.flightserver.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,16 +25,16 @@ public class Airport implements Serializable {
     private String city;
     private String code;
 
-//    @ManyToMany
-//    private Collection<Flight> flights = new ArrayList<Flight>();
-//
-//    public Collection<Flight> getFlights() {
-//        return flights;
-//    }
-//
-//    public void setFlights(Collection<Flight> flights) {
-//        this.flights = flights;
-//    }
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "airports")
+    private Collection<Flight> flights = new ArrayList<Flight>();
+
+    public Collection<Flight> getFlights() {
+        return flights;
+    }
+
+    public void setFlights(Collection<Flight> flights) {
+        this.flights = flights;
+    }
 
     public Airport() {
 

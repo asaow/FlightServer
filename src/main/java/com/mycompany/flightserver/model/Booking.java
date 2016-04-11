@@ -5,14 +5,30 @@
  */
 package com.mycompany.flightserver.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author Loki
  */
+@Entity
+@XmlRootElement
 public class Booking {
+
+    @Id
+    @GeneratedValue
     private int id;
     private Flight flight;
     private Person person;
+
+    @ManyToMany
+    private Collection<Flight> flights = new ArrayList<Flight>();
 
     public Person getPerson() {
         return person;
@@ -37,5 +53,5 @@ public class Booking {
     public void setFlight(Flight flight) {
         this.flight = flight;
     }
-    
+
 }
