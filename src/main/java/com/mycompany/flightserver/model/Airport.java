@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -26,16 +27,29 @@ public class Airport implements Serializable {
     private String name;
     private String code;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "airports")
-    private Collection<Flight> flights = new ArrayList<Flight>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fromAirport")
+    private Collection<Flight> arrivals = new ArrayList<Flight>();
 
-    public Collection<Flight> getFlights() {
-        return flights;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "toAirport")
+    private Collection<Flight> departures = new ArrayList<Flight>();
+
+    public Collection<Flight> getArrivals() {
+        return arrivals;
     }
 
-    public void setFlights(Collection<Flight> flights) {
-        this.flights = flights;
+    public void setArrivals(Collection<Flight> arrivals) {
+        this.arrivals = arrivals;
     }
+
+    public Collection<Flight> getDepartures() {
+        return departures;
+    }
+
+    public void setDepartures(Collection<Flight> departures) {
+        this.departures = departures;
+    }
+
+    
 
     public Airport() {
 

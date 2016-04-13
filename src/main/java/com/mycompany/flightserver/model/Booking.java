@@ -11,7 +11,9 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -25,34 +27,34 @@ public class Booking implements Serializable {
     @Id
     @GeneratedValue
     private int id;
-    private Flight flight;
-    private Person person;
 
-    @ManyToMany
-    private Collection<Flight> flights = new ArrayList<Flight>();
+//    @ManyToOne
+//    @JoinColumn(name = "Flight_Id")
+//    private Flight flight;
+//
+//    public Flight getFlight() {
+//        return flight;
+//    }
+//
+//    public void setFlight(Flight flight) {
+//        this.flight = flight;
+//    }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
+//    private Passenger passenger;
+//
+//    public Passenger getPassenger() {
+//        return passenger;
+//    }
+//
+//    public void setPassenger(Passenger passenger) {
+//        this.passenger = passenger;
+//    }
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Flight getFlight() {
-        return flight;
-    }
-
-    public void setFlight(Flight flight) {
-        this.flight = flight;
     }
 
 }

@@ -28,7 +28,7 @@ public class HibernateQueries {
      * Metoden getAirport hämtar en flygplats, dvs ett objekt av Airport, med id
      * = airportId
      *
-     * @param
+     * @param airportId
      * @return
      */
     public Airport getAirport(int airportId) {
@@ -39,7 +39,7 @@ public class HibernateQueries {
         Airport a = (Airport) session.get(Airport.class, airportId);
 
         session.getTransaction().commit();
-        session.close();
+        // session.close();
 
         return a;
     }
@@ -47,24 +47,29 @@ public class HibernateQueries {
     public List<Airport> getAirports() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
+        System.out.println("************************* getAirport() inne i hibernate ****************************");
 
         List<Airport> airports = session.createCriteria(Airport.class).list();
 
         session.getTransaction().commit();
+                System.out.println("************************* getAirport() inne i hibernate, efter commit ****************************");
+
         //session.close();
 
         return airports;
     }
-
 
     public Flight getFlight(int flightId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
         Flight f = (Flight) session.get(Flight.class, flightId);
+        session.getTransaction().commit();
+        // session.close();
+
         return f;
     }
-    
+
     /**
      * Hämtar en bokning
      *
@@ -72,17 +77,16 @@ public class HibernateQueries {
      * @return en bokning
      */
     public Booking getBooking(int bookingId) {
-        
+
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
         Booking b = (Booking) session.get(Booking.class, bookingId);
 
-
         session.getTransaction().commit();
         session.close();
         return b;
-     }
+    }
 
     public List<Flight> getFlights() {
 
@@ -96,33 +100,32 @@ public class HibernateQueries {
 
     }
 
-    
     /**
      * Hämtar alla bokningar
      *
      * @return en lista med alla bokningar
      */
     public List<Booking> getBookings() {
-        
+
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        
+
         List<Booking> bookings = session.createCriteria(Booking.class).list();
-        
+
         session.getTransaction().commit();
         session.close();
-        
+
         return bookings;
     }
-    
+
     /**
      * Skapar en bokning
-     *   
+     *
      * @param b bokning
      * @return en bokning
      */
     public Booking createBooking(Booking b) {
-        
+
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
@@ -131,22 +134,22 @@ public class HibernateQueries {
         session.getTransaction().commit();
         session.close();
 
-        return b;  
+        return b;
     }
-    
+
     /**
      * Tar bort en bokning
-     *   
+     *
      * @param bookingId bokningsnummer
      */
     public void deleteBooking(int bookingId) {
-        
+
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        
+
         Booking b = (Booking) session.get(Booking.class, bookingId);
         session.delete(b);
-        
+
         session.getTransaction().commit();
         session.close();
     }

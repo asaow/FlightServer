@@ -13,7 +13,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,8 +26,15 @@ public class Flight implements Serializable {
     @Id
     @GeneratedValue
     private int id;
+
+    @ManyToOne
+    @JoinColumn(name = "fromAirport_Id")
     private Airport fromAirport;
+
+    @ManyToOne
+    @JoinColumn(name = "toAirport_Id")
     private Airport toAirport;
+
     private Calendar depDate;
     private Calendar arrDate;
     private Calendar depTime;
@@ -33,27 +42,16 @@ public class Flight implements Serializable {
     private String duration;
     private int nbrOfConnections;
 
-    @ManyToMany
-    private Collection<Airport> airports = new ArrayList<Airport>();
-
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "flights")
-    private Collection<Booking> bookings = new ArrayList<Booking>();
-
-    public Collection<Booking> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(Collection<Booking> bookings) {
-        this.bookings = bookings;
-    }
-
-    public Collection<Airport> getAirports() {
-        return airports;
-    }
-
-    public void setAirports(Collection<Airport> airports) {
-        this.airports = airports;
-    }
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "flight")
+//    private Collection<Booking> bookings = new ArrayList<Booking>();
+//
+//    public Collection<Booking> getBookings() {
+//        return bookings;
+//    }
+//
+//    public void setBookings(Collection<Booking> bookings) {
+//        this.bookings = bookings;
+//    }
 
     public Flight() {
 

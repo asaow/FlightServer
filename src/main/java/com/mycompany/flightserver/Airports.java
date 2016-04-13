@@ -27,6 +27,7 @@ public class Airports {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Airport> getAirports() {
+                System.out.println("@GET, getAirports() inne i Airportssss");
         return airportService.getAirports();
     }
 
@@ -35,13 +36,16 @@ public class Airports {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Airport getAirport(@PathParam("airportId") int airportId) {
+        System.out.println("@GET @Path(/{airportId}, getAirport() inne i Airportssss");
+        //Hit kommer vi!
         return airportService.getAirport(airportId);
 
     }
-    
+
     @Path("/{airportId}/flights")
     @Produces(MediaType.APPLICATION_JSON)
-    public Flights test(){
+    public Flights test() {
+        System.out.println("@Path(/{airportId}/flights, toFlights() inne i Airportssss");
         return (new Flights());
     }
 

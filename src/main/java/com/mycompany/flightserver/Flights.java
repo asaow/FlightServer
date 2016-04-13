@@ -27,16 +27,17 @@ public class Flights {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Flight> getFlights() {
-        System.out.println("inne i flightssss");
+        System.out.println("@GET getFlights() inne i flightssss");
         return flightService.getFlights();
     }
 
     @GET
-    @Path("/{flightID}")
+    @Path("/{flightId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Flight getFlight(@PathParam("flightID") int flightID) {
-        return flightService.getFlight(flightID);
+    public Flight getFlight(@PathParam("flightId") int flightId) {
+        System.out.println("@GET @Path(/{flightId}, getFlight() inne i flightssss");
+        return flightService.getFlight(flightId);
     }
 
 }

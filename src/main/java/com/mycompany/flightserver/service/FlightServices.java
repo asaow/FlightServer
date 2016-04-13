@@ -24,7 +24,7 @@ public class FlightServices {
     }
 
     public List<Flight> getFlights() {
-        System.out.println("inne i service");
+        System.out.println("inne i Flightservice");
         return hibernateQueries.getFlights();
     }
 

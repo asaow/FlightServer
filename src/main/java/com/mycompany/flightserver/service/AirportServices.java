@@ -14,21 +14,25 @@ import java.util.List;
  * @author Loki
  */
 public class AirportServices {
-    
+
     HibernateQueries hibernateQueries = new HibernateQueries();
-    
-    public AirportServices(){
-        
+
+    public AirportServices() {
+
     }
-    
+
     //Hämtar alla flygplatser
-    public List<Airport> getAirports(){
+    public List<Airport> getAirports() {
+        System.out.println("********************* getAirports() inne i AirportServices *********************");
+
         return hibernateQueries.getAirports();
     }
-    
+
     //Hämtar en flygplats
-    public Airport getAirport(int id){
+    public Airport getAirport(int id) {
+        System.out.println("********************* getAirport() inne i AirportServices *********************");
+        //Hit kommer vi!!!
         return hibernateQueries.getAirport(id);
     }
-    
+
 }
