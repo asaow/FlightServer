@@ -14,9 +14,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -26,32 +28,70 @@ public class Flight implements Serializable {
     @Id
     @GeneratedValue
     private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "fromAirport_Id")
-    private Airport fromAirport;
-
-    @ManyToOne
-    @JoinColumn(name = "toAirport_Id")
-    private Airport toAirport;
-
+    private String fromAirport;
+    private String toAirport;
+    private String fromAirportCode;    
+    private String toAirportCode;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar depDate;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar arrDate;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar depTime;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar arrTime;
-    private String duration;
-    private int nbrOfConnections;
+    private String airline;
+    private double price;
+    //private String duration;
+    //private int nbrOfConnections;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "flight")
-//    private Collection<Booking> bookings = new ArrayList<Booking>();
-//
-//    public Collection<Booking> getBookings() {
-//        return bookings;
-//    }
-//
-//    public void setBookings(Collection<Booking> bookings) {
-//        this.bookings = bookings;
-//    }
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
+
+    public void setAirline(String airline) {
+        this.airline = airline;
+    }
+
+    public String getFromAirportCode() {
+        return fromAirportCode;
+    }
+
+    public void setFromAirportCode(String fromAirportCode) {
+        this.fromAirportCode = fromAirportCode;
+    }
+
+    public String getToAirportCode() {
+        return toAirportCode;
+    }
+
+    public void setToAirportCode(String toAirportCode) {
+        this.toAirportCode = toAirportCode;
+    }
+
+    public String getFromAirport() {
+        return fromAirport;
+    }
+
+    public void setFromAirport(String fromAirport) {
+        this.fromAirport = fromAirport;
+    }
+
+    public String getToAirport() {
+        return toAirport;
+    }
+
+    public void setToAirport(String toAirport) {
+        this.toAirport = toAirport;
+    }
 
     public Flight() {
 
@@ -63,22 +103,6 @@ public class Flight implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Airport getFromAirport() {
-        return fromAirport;
-    }
-
-    public void setFromAirport(Airport fromAirport) {
-        this.fromAirport = fromAirport;
-    }
-
-    public Airport getToAirport() {
-        return toAirport;
-    }
-
-    public void setToAirport(Airport toAirport) {
-        this.toAirport = toAirport;
     }
 
     public Calendar getDepDate() {
@@ -113,20 +137,20 @@ public class Flight implements Serializable {
         this.arrTime = arrTime;
     }
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public int getNbrOfConnections() {
-        return nbrOfConnections;
-    }
-
-    public void setNbrOfConnections(int nbrOfConnections) {
-        this.nbrOfConnections = nbrOfConnections;
-    }
+//    public String getDuration() {
+//        return duration;
+//    }
+//
+//    public void setDuration(String duration) {
+//        this.duration = duration;
+//    }
+//
+//    public int getNbrOfConnections() {
+//        return nbrOfConnections;
+//    }
+//
+//    public void setNbrOfConnections(int nbrOfConnections) {
+//        this.nbrOfConnections = nbrOfConnections;
+//    }
 
 }

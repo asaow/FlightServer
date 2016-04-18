@@ -52,10 +52,9 @@ public class HibernateQueries {
         List<Airport> airports = session.createCriteria(Airport.class).list();
 
         session.getTransaction().commit();
-                System.out.println("************************* getAirport() inne i hibernate, efter commit ****************************");
+        System.out.println("************************* getAirport() inne i hibernate, efter commit ****************************");
 
         //session.close();
-
         return airports;
     }
 
@@ -92,12 +91,36 @@ public class HibernateQueries {
 
         Session session = sessionFactory.openSession();
         session.beginTransaction();
+
         List<Flight> flights = session.createCriteria(Flight.class).list();
 
         session.getTransaction().commit();
         //session.close();
         return flights;
 
+    }
+
+    public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        List<Flight> flights = (List<Flight>) session.createQuery("FROM Flight WHERE fromAirportCode = '" + fromAirportCode + "'"
+                + " AND toAirportCode= '" + toAirportCode + "'" + "AND depDate= '" + depDate + "'").list();
+        session.getTransaction().commit();
+        return flights;
+    }
+
+    public List<Flight> getFlightsByAirportCode(String fromAirportCode, String toAirportCode) {
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        List<Flight> flights
+                = session.createQuery("FROM Flight WHERE fromAirportCode = '" + fromAirportCode + "'"
+                        + " AND toAirportCode= '" + toAirportCode + "'").list();
+        session.getTransaction().commit();
+        return flights;
     }
 
     /**

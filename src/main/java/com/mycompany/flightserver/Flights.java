@@ -8,8 +8,10 @@ package com.mycompany.flightserver;
 import com.mycompany.flightserver.model.Flight;
 import com.mycompany.flightserver.service.FlightServices;
 import java.util.List;
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -19,7 +21,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Nanali67
  */
-@Path("/")
+@Path("/flights")
 public class Flights {
 
     FlightServices flightService = new FlightServices();
@@ -39,5 +41,47 @@ public class Flights {
         System.out.println("@GET @Path(/{flightId}, getFlight() inne i flightssss");
         return flightService.getFlight(flightId);
     }
+    
+    @GET
+    @Path("{fromAirportCode}/{toAirportCode}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<Flight> getFlightsByAirportCode(
+            @PathParam("fromAirportCode") String fromAirportCode,
+            @PathParam("toAirportCode") String toAirportCode ) {
+        return flightService.getFlightsByAirportCode(fromAirportCode, toAirportCode);
+    }
+    
+    
+    @GET
+    @Path("{fromAirportCode}/{toAirportCode}/{depDate}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<Flight> getFlightsBySelection(
+            @PathParam("fromAirportCode") String fromAirportCode,
+            @PathParam("toAirportCode") String toAirportCode,
+            @PathParam("depDate") String depDate ) {
+        return flightService.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
+    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List<Flight> getFlightsByAirports(String from, String to) {
+//        System.out.println("@GET getFlights() inne i flightssss");
+//        return flightService.getFlightsByAirports(from, to);
+//    }
+    
+    //Checka flight
+//    @POST
+//    @Consumes({MediaType.APPLICATION_JSON})
+//    @Produces({MediaType.APPLICATION_JSON})
+//    public Flight checkFlight(Flight f) {
+//        
+//        if (f == null)
+//            throw new BadRequestException();    
+//        Flight flight = FlightServices.checkFlight(f);
+//        System.out.print("added question");
+//
+//        return flight;   
+//   }
 
 }

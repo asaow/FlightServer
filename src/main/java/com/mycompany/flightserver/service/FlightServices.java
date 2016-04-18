@@ -32,4 +32,17 @@ public class FlightServices {
         return hibernateQueries.getFlight(id);
     }
 
+    public List<Flight> getFlightsByAirportCode(String fromAirportCode, String toAirportCode) {
+        System.out.println("inne i Flightservice");
+        return hibernateQueries.getFlightsByAirportCode(fromAirportCode, toAirportCode);
+    }
+    
+    public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
+        return hibernateQueries.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
+    }
+    //Checka flight
+//        public Flight checkFlight(Flight f) {
+//        System.out.println("inne i Flightservice");
+//        return hibernateQueries.checkFlight(f);
+//    }
 }

@@ -27,6 +27,9 @@ public class Booking implements Serializable {
     @Id
     @GeneratedValue
     private int id;
+    
+    private Flight flight;
+    private Collection<Passenger> passengers = new ArrayList<Passenger>();
 
 //    @ManyToOne
 //    @JoinColumn(name = "Flight_Id")
