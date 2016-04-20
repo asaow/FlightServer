@@ -6,7 +6,9 @@
 package com.mycompany.flightserver;
 
 import com.mycompany.flightserver.model.Flight;
+import com.mycompany.flightserver.model.Search;
 import com.mycompany.flightserver.service.FlightServices;
+import java.util.Date;
 import java.util.List;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
@@ -41,17 +43,18 @@ public class Flights {
         System.out.println("@GET @Path(/{flightId}, getFlight() inne i flightssss");
         return flightService.getFlight(flightId);
     }
-    
-    @GET
-    @Path("{fromAirportCode}/{toAirportCode}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public List<Flight> getFlightsByAirportCode(
-            @PathParam("fromAirportCode") String fromAirportCode,
-            @PathParam("toAirportCode") String toAirportCode ) {
-        return flightService.getFlightsByAirportCode(fromAirportCode, toAirportCode);
-    }
-    
+
+
+//    @GET
+//    @Path("/search")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public List<Flight> getFlightsBySelection(
+//            @PathParam("search") Flight search) {
+//        return flightService.getFlightsBySelection(search);
+//    }    
+   
+   
     
     @GET
     @Path("{fromAirportCode}/{toAirportCode}/{depDate}")
@@ -61,8 +64,24 @@ public class Flights {
             @PathParam("fromAirportCode") String fromAirportCode,
             @PathParam("toAirportCode") String toAirportCode,
             @PathParam("depDate") String depDate ) {
+        
         return flightService.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
     }
+}
+    
+//    @GET
+//    @Path("{fromAirportCode}/{toAirportCode}/{depDate}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public List<Flight> getFlightsBySelection(
+//            @PathParam("fromAirportCode") String fromAirportCode,
+//            @PathParam("toAirportCode") String toAirportCode,
+//            @PathParam("depDate") String depDate ) {
+//        return flightService.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
+//    }
+    
+    
+    
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public List<Flight> getFlightsByAirports(String from, String to) {
@@ -84,4 +103,4 @@ public class Flights {
 //        return flight;   
 //   }
 
-}
+

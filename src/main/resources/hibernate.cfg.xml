@@ -12,6 +12,7 @@
     <mapping class = "com.mycompany.flightserver.model.Airport"/>
     <mapping class = "com.mycompany.flightserver.model.Booking"/>
      <mapping class = "com.mycompany.flightserver.model.Flight"/>
+     <mapping class = "com.mycompany.flightserver.model.Passenger"/>
 
   </session-factory>
 </hibernate-configuration>

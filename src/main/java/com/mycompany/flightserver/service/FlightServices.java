@@ -7,6 +7,8 @@ package com.mycompany.flightserver.service;
 
 import com.mycompany.flightserver.hibernate.HibernateQueries;
 import com.mycompany.flightserver.model.Flight;
+import com.mycompany.flightserver.model.Search;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,11 +34,11 @@ public class FlightServices {
         return hibernateQueries.getFlight(id);
     }
 
-    public List<Flight> getFlightsByAirportCode(String fromAirportCode, String toAirportCode) {
-        System.out.println("inne i Flightservice");
-        return hibernateQueries.getFlightsByAirportCode(fromAirportCode, toAirportCode);
-    }
-    
+
+
+//    public  List<Flight> getFlightsBySelection(Flight search) {
+//        return hibernateQueries.getFlightsBySelection(search);
+//    }
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
         return hibernateQueries.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
     }

@@ -11,6 +11,8 @@ import com.mycompany.flightserver.model.Flight;
 import java.util.Collection;
 
 import com.mycompany.flightserver.model.Booking;
+import com.mycompany.flightserver.model.Search;
+import java.util.Date;
 
 import java.util.List;
 import org.hibernate.Session;
@@ -100,28 +102,39 @@ public class HibernateQueries {
 
     }
 
+//    public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
+//
+//        Session session = sessionFactory.openSession();
+//        session.beginTransaction();
+//
+//        List<Flight> flights = (List<Flight>) session.createQuery("FROM Flight WHERE fromAirportCode = '" + fromAirportCode + "'"
+//                + " AND toAirportCode= '" + toAirportCode + "'" + "AND depDate= '" + depDate + "'").list();
+//        session.getTransaction().commit();
+//        return flights;
+//    }
+
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
-
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-
-        List<Flight> flights = (List<Flight>) session.createQuery("FROM Flight WHERE fromAirportCode = '" + fromAirportCode + "'"
-                + " AND toAirportCode= '" + toAirportCode + "'" + "AND depDate= '" + depDate + "'").list();
-        session.getTransaction().commit();
-        return flights;
-    }
-
-    public List<Flight> getFlightsByAirportCode(String fromAirportCode, String toAirportCode) {
 
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
         List<Flight> flights
                 = session.createQuery("FROM Flight WHERE fromAirportCode = '" + fromAirportCode + "'"
-                        + " AND toAirportCode= '" + toAirportCode + "'").list();
+                        + " AND toAirportCode= '" + toAirportCode + "'" + "AND depDate= '" + depDate + "'").list();
         session.getTransaction().commit();
         return flights;
     }
+    
+//        public List<Flight> getFlightsBySelection(Flight search) {
+//
+//        Session session = sessionFactory.openSession();
+//        session.beginTransaction();
+//
+//        List<Flight> flights = (List<Flight>) session.createQuery("FROM Flight WHERE fromAirportCode = '" + search.getFromAirportCode() + "'"
+//                + " AND toAirportCode= '" + search.getToAirportCode() + "'" + "AND depDate= '" + search.getDepDate() + "'").list();
+//        session.getTransaction().commit();
+//        return flights;
+//    }
 
     /**
      * Hämtar alla bokningar
