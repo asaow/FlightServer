@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.flightserver;
 
 import com.mycompany.flightserver.model.Booking;
@@ -20,42 +15,42 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author Loki
+ * @author Grupp 2
  */
-
 @Path("/bookings")
 public class Bookings {
-    
+
     BookingServices bookingService = new BookingServices();
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Booking> getBookings(){
+    public List<Booking> getBookings() {
         return bookingService.getBookings();
     }
-    
+
     @GET
     @Path("/{bookingId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Booking getBooking(@PathParam("bookingId")int bookingId){
-        return bookingService.getBooking(bookingId);  
+    public Booking getBooking(@PathParam("bookingId") int bookingId) {
+        return bookingService.getBooking(bookingId);
     }
-    
+
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Booking createBooking(Booking b){
-        if(b == null)
-            throw new BadRequestException();    
+    public Booking createBooking(Booking b) {
+        if (b == null) {
+            throw new BadRequestException();
+        }
         Booking booking = bookingService.createBooking(b);
         return booking;
     }
-    
+
     @DELETE
-    @Path("/{bookingId}")    
+    @Path("/{bookingId}")
     @Produces({MediaType.APPLICATION_JSON})
-    public void deleteBooking(@PathParam("bookingId")int bookingId){
+    public void deleteBooking(@PathParam("bookingId") int bookingId) {
         bookingService.deleteBooking(bookingId);
     }
 }

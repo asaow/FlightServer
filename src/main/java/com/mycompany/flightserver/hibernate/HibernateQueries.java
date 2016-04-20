@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.flightserver.hibernate;
 
 import com.mycompany.flightserver.model.Airport;
 
 import com.mycompany.flightserver.model.Flight;
-import java.util.Collection;
 
 import com.mycompany.flightserver.model.Booking;
-import com.mycompany.flightserver.model.Search;
-import java.util.Date;
 
 import java.util.List;
 import org.hibernate.Session;
@@ -20,7 +12,7 @@ import org.hibernate.SessionFactory;
 
 /**
  *
- * @author asa
+ * @author Grupp 2
  */
 public class HibernateQueries {
 
@@ -112,7 +104,6 @@ public class HibernateQueries {
 //        session.getTransaction().commit();
 //        return flights;
 //    }
-
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
 
         Session session = sessionFactory.openSession();
@@ -124,7 +115,7 @@ public class HibernateQueries {
         session.getTransaction().commit();
         return flights;
     }
-    
+
 //        public List<Flight> getFlightsBySelection(Flight search) {
 //
 //        Session session = sessionFactory.openSession();
@@ -135,7 +126,6 @@ public class HibernateQueries {
 //        session.getTransaction().commit();
 //        return flights;
 //    }
-
     /**
      * Hämtar alla bokningar
      *

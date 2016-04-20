@@ -1,26 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.flightserver.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author Grupp 2
+ */
 @Entity
 @XmlRootElement
 public class Flight implements Serializable {
@@ -30,7 +21,7 @@ public class Flight implements Serializable {
     private int id;
     private String fromAirport;
     private String toAirport;
-    private String fromAirportCode;    
+    private String fromAirportCode;
     private String toAirportCode;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar depDate;
@@ -152,5 +143,4 @@ public class Flight implements Serializable {
 //    public void setNbrOfConnections(int nbrOfConnections) {
 //        this.nbrOfConnections = nbrOfConnections;
 //    }
-
 }

@@ -8,21 +8,22 @@ import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 
+ *
  * @author Grupp 2
  */
 @Entity
 @XmlRootElement
 public class Passenger implements Serializable {
-    
-    @Id @GeneratedValue
+
+    @Id
+    @GeneratedValue
     private int id;
     private String firstName;
     private String lastName;
     private String age;
     private String phone;
     private String email;
-    
+
     @ManyToOne
     private Booking booking;
 
@@ -33,11 +34,11 @@ public class Passenger implements Serializable {
     public void setBooking(Booking booking) {
         this.booking = booking;
     }
-    
-    public Passenger(){
-        
+
+    public Passenger() {
+
     }
-    
+
     public int getId() {
         return id;
     }
@@ -86,5 +87,4 @@ public class Passenger implements Serializable {
         this.email = email;
     }
 
-    
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.flightserver;
 
 import com.mycompany.flightserver.model.Airport;
@@ -17,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author Nanali67
+ * @author Grupp 2
  */
 @Path("/airports")
 public class Airports {
@@ -27,7 +22,7 @@ public class Airports {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Airport> getAirports() {
-                System.out.println("@GET, getAirports() inne i Airportssss");
+        System.out.println("@GET, getAirports() inne i Airportssss");
         return airportService.getAirports();
     }
 
@@ -41,13 +36,11 @@ public class Airports {
         return airportService.getAirport(airportId);
 
     }
-    
+
 //    @Path("/{airportId}/flights")
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public Flights test() {
 //        System.out.println("@Path(/{airportId}/flights, toFlights() inne i Airportssss");
 //        return (new Flights());
 //    }
-
-
 }
