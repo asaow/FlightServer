@@ -19,22 +19,40 @@ public class Flights {
 
     FlightServices flightService = new FlightServices();
 
+    /**
+     * Metoden getFlights hämtar en lista med alla flights.
+     *
+     * @return en lista med alla flights
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Flight> getFlights() {
-        System.out.println("@GET getFlights() inne i flightssss");
         return flightService.getFlights();
     }
 
+    /**
+     * Metoden getFlight hämtar en flight.
+     *
+     * @param flightId
+     * @return en flight
+     */
     @GET
     @Path("/{flightId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Flight getFlight(@PathParam("flightId") int flightId) {
-        System.out.println("@GET @Path(/{flightId}, getFlight() inne i flightssss");
         return flightService.getFlight(flightId);
     }
 
+    /**
+     * Metoden getFlightsBySelection returnerar en lista med flights enligt
+     * sökkriterierna.
+     *
+     * @param fromAirportCode
+     * @param toAirportCode
+     * @param depDate
+     * @return en lista med flights
+     */
     @GET
     @Path("{fromAirportCode}/{toAirportCode}/{depDate}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,7 +61,6 @@ public class Flights {
             @PathParam("fromAirportCode") String fromAirportCode,
             @PathParam("toAirportCode") String toAirportCode,
             @PathParam("depDate") String depDate) {
-
         return flightService.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
     }
 }

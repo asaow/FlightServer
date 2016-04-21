@@ -16,22 +16,40 @@ public class BookingServices {
 
     }
 
-    //Hämtar en bokning
+    /**
+     * Metoden getBooking hämtar en bokning.
+     *
+     * @param bookingId
+     * @return en bokning
+     */
     public Booking getBooking(int bookingId) {
         return hibernateQueries.getBooking(bookingId);
     }
 
-    //Hämtar alla bokningar
+    /**
+     * Metoden getBookings hämtar en lista med alla bokningar.
+     *
+     * @return en lista med alla bokningar
+     */
     public List<Booking> getBookings() {
         return hibernateQueries.getBookings();
     }
 
-    //Skapar en bokning
+    /**
+     * Metoden createBooking skapar en bokning.
+     *
+     * @param b
+     * @return en bokning
+     */
     public Booking createBooking(Booking b) {
         return hibernateQueries.createBooking(b);
     }
 
-    //Tar bort en bokning
+    /**
+     * Metoden deleteBooking tar bort en bokning.
+     *
+     * @param bookingId
+     */
     public void deleteBooking(int bookingId) {
         hibernateQueries.deleteBooking(bookingId);
     }

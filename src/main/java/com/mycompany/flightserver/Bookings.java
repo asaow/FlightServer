@@ -22,12 +22,23 @@ public class Bookings {
 
     BookingServices bookingService = new BookingServices();
 
+    /**
+     * Metoden getBookings hämtar en lista med alla bokningar.
+     *
+     * @return en lista med alla bokningar
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Booking> getBookings() {
         return bookingService.getBookings();
     }
 
+    /**
+     * Metoden getBooking hämtar en bokning.
+     *
+     * @param bookingId
+     * @return en bokning
+     */
     @GET
     @Path("/{bookingId}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -36,6 +47,12 @@ public class Bookings {
         return bookingService.getBooking(bookingId);
     }
 
+    /**
+     * Metoden createBooking skapar en bokning.
+     *
+     * @param b
+     * @return en bokning
+     */
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
@@ -47,6 +64,11 @@ public class Bookings {
         return booking;
     }
 
+    /**
+     * Metoden deleteBooking tar bort en bokning.
+     *
+     * @param bookingId
+     */
     @DELETE
     @Path("/{bookingId}")
     @Produces({MediaType.APPLICATION_JSON})

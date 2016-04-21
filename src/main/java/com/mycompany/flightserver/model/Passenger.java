@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Klassen Passenger lagrar information om en passagerare. 
  *
  * @author Grupp 2
  */
@@ -27,18 +28,16 @@ public class Passenger implements Serializable {
     @ManyToOne
     private Booking booking;
 
-    public Booking getBooking() {
-        return booking;
-    }
-
-    public void setBooking(Booking booking) {
-        this.booking = booking;
-    }
-
+    /*
+    Konstruktor
+     */
     public Passenger() {
 
     }
 
+    /*
+    Getters och setters
+     */
     public int getId() {
         return id;
     }
@@ -87,4 +86,11 @@ public class Passenger implements Serializable {
         this.email = email;
     }
 
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
 }

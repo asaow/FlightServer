@@ -9,6 +9,7 @@ import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Klassen Flight lagrar information om en flight.
  *
  * @author Grupp 2
  */
@@ -34,6 +35,16 @@ public class Flight implements Serializable {
     private String duration;
     private int nbrOfConnections;
 
+    /*
+    Konstruktor
+     */
+    public Flight() {
+
+    }
+
+    /*
+    Getters och setters
+     */
     public double getPrice() {
         return price;
     }
@@ -80,10 +91,6 @@ public class Flight implements Serializable {
 
     public void setToAirport(String toAirport) {
         this.toAirport = toAirport;
-    }
-
-    public Flight() {
-
     }
 
     public int getId() {

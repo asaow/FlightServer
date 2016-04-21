@@ -19,20 +19,28 @@ public class Airports {
 
     AirportServices airportService = new AirportServices();
 
+    /**
+     * Metoden getAirports hämtar en lista med alla flygplatser.
+     *
+     * @return en lista med alla flygplatser
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Airport> getAirports() {
-        System.out.println("@GET, getAirports() inne i Airportssss");
         return airportService.getAirports();
     }
 
+    /**
+     * Metoden getAirport hämtar en flygplats.
+     *
+     * @param airportId
+     * @return en flygplats
+     */
     @GET
     @Path("/{airportId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Airport getAirport(@PathParam("airportId") int airportId) {
-        System.out.println("@GET @Path(/{airportId}, getAirport() inne i Airportssss");
-        //Hit kommer vi!
         return airportService.getAirport(airportId);
 
     }

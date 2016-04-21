@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Klassen Booking lagrar information om en bokning.
  *
  * @author Grupp 2
  */
@@ -33,11 +34,17 @@ public class Booking implements Serializable {
     public static final String FIRST_CLASS_TYPE = "FÖRSTA KLASS";
     public static final String BUSINESS_TYPE = "BUSINESSKLASS";
     public static final String ECONOMY_TYPE = "EKONOMIKLASS";
-    
-    public Booking(){
-        
+
+    /*
+    Konstruktor
+     */
+    public Booking() {
+
     }
 
+    /*
+    Getters och setters
+     */
     public String getType() {
         return type;
     }

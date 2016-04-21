@@ -19,11 +19,10 @@ public class HibernateQueries {
     SessionFactory sessionFactory = MyHibernateUtil.getSessionFactory();
 
     /**
-     * Metoden getAirport hämtar en flygplats, dvs ett objekt av Airport, med id
-     * = airportId
+     * Metoden getAirport hämtar en flygplats.
      *
      * @param airportId
-     * @return
+     * @return en flygplats
      */
     public Airport getAirport(int airportId) {
 
@@ -38,20 +37,29 @@ public class HibernateQueries {
         return a;
     }
 
+    /**
+     * Metoden getAirports returnerar en lista med alla flygplatser.
+     *
+     * @return en lista med alla flygplatser
+     */
     public List<Airport> getAirports() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        System.out.println("************************* getAirport() inne i hibernate ****************************");
 
         List<Airport> airports = session.createCriteria(Airport.class).list();
 
         session.getTransaction().commit();
-        System.out.println("************************* getAirport() inne i hibernate, efter commit ****************************");
 
         //session.close();
         return airports;
     }
 
+    /**
+     * Metoden getFlight returnerar en flight.
+     *
+     * @param flightId
+     * @return en flight
+     */
     public Flight getFlight(int flightId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -63,6 +71,11 @@ public class HibernateQueries {
         return f;
     }
 
+    /**
+     * Metoden getFlights returnerar en lista med alla flights.
+     *
+     * @return en lista med alla flights
+     */
     public List<Flight> getFlights() {
 
         Session session = sessionFactory.openSession();
@@ -76,6 +89,14 @@ public class HibernateQueries {
 
     }
 
+    /**
+     * Metoden getFlightsBySelection returnerar en lista med flights enligt sökkriterierna.
+     *
+     * @param fromAirportCode
+     * @param toAirportCode
+     * @param depDate
+     * @return en lista med flights
+     */
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
 
         Session session = sessionFactory.openSession();
@@ -89,7 +110,7 @@ public class HibernateQueries {
     }
 
     /**
-     * Hämtar alla bokningar
+     * Metoden getBookings hämtar en lista med alla bokningar.
      *
      * @return en lista med alla bokningar
      */
@@ -107,7 +128,7 @@ public class HibernateQueries {
     }
 
     /**
-     * Hämtar en bokning
+     * Metoden getBooking hämtar en bokning.
      *
      * @param bookingId bokningens id
      * @return en bokning
@@ -125,7 +146,7 @@ public class HibernateQueries {
     }
 
     /**
-     * Skapar en bokning
+     * Metoden createBooking skapar en bokning.
      *
      * @param b bokning
      * @return en bokning
@@ -144,7 +165,7 @@ public class HibernateQueries {
     }
 
     /**
-     * Tar bort en bokning
+     * Metoden deleteBooking tar bort en bokning.
      *
      * @param bookingId bokningsnummer
      */

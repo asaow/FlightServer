@@ -12,21 +12,38 @@ public class FlightServices {
 
     HibernateQueries hibernateQueries = new HibernateQueries();
 
-    List<Flight> flightList;
-
     public FlightServices() {
 
     }
 
+    /**
+     * Metoden getFlights hämtar en lista med alla flights.
+     *
+     * @return en lista med alla flights
+     */
     public List<Flight> getFlights() {
-        System.out.println("inne i Flightservice");
         return hibernateQueries.getFlights();
     }
 
+    /**
+     * Metoden getFlight hämtar en flight.
+     *
+     * @param id
+     * @return en flight
+     */
     public Flight getFlight(int id) {
         return hibernateQueries.getFlight(id);
     }
 
+    /**
+     * Metoden getFlightsBySelection returnerar en lista med flights enligt
+     * sökkriterierna.
+     *
+     * @param fromAirportCode
+     * @param toAirportCode
+     * @param depDate
+     * @return en lista med flights
+     */
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
         return hibernateQueries.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
     }

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Klassen Airport lagrar information om en flygplats.
  *
  * @author Grupp 2
  */
@@ -21,10 +22,16 @@ public class Airport implements Serializable {
     private String name;
     private String city;
 
+    /*
+    Konstruktor
+     */
     public Airport() {
 
     }
 
+    /*
+    Getters och setters
+     */
     public String getCity() {
         return city;
     }

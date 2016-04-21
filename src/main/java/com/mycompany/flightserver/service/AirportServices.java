@@ -16,17 +16,24 @@ public class AirportServices {
 
     }
 
-    //Hämtar alla flygplatser
+    /**
+     * Metoden getAirports hämtar en lista med alla flygplatser.
+     *
+     * @return en lista med alla flygplatser
+     */
     public List<Airport> getAirports() {
-        System.out.println("********************* getAirports() inne i AirportServices *********************");
 
         return hibernateQueries.getAirports();
     }
 
-    //Hämtar en flygplats
+    /**
+     * Metoden getAirport hämtar en flygplats.
+     *
+     * @param id
+     * @return en flygplats
+     */
     public Airport getAirport(int id) {
-        System.out.println("********************* getAirport() inne i AirportServices *********************");
-        //Hit kommer vi!!!
+
         return hibernateQueries.getAirport(id);
     }
 
