@@ -27,14 +27,12 @@ public class Flight implements Serializable {
     private Calendar depDate;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar arrDate;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Calendar depTime;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Calendar arrTime;
+    private String depTime;
+    private String arrTime;
     private String airline;
     private double price;
-    //private String duration;
-    //private int nbrOfConnections;
+    private String duration;
+    private int nbrOfConnections;
 
     public double getPrice() {
         return price;
@@ -112,35 +110,35 @@ public class Flight implements Serializable {
         this.arrDate = arrDate;
     }
 
-    public Calendar getDepTime() {
+    public String getDepTime() {
         return depTime;
     }
 
-    public void setDepTime(Calendar depTime) {
+    public void setDepTime(String depTime) {
         this.depTime = depTime;
     }
 
-    public Calendar getArrTime() {
+    public String getArrTime() {
         return arrTime;
     }
 
-    public void setArrTime(Calendar arrTime) {
+    public void setArrTime(String arrTime) {
         this.arrTime = arrTime;
     }
 
-//    public String getDuration() {
-//        return duration;
-//    }
-//
-//    public void setDuration(String duration) {
-//        this.duration = duration;
-//    }
-//
-//    public int getNbrOfConnections() {
-//        return nbrOfConnections;
-//    }
-//
-//    public void setNbrOfConnections(int nbrOfConnections) {
-//        this.nbrOfConnections = nbrOfConnections;
-//    }
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public int getNbrOfConnections() {
+        return nbrOfConnections;
+    }
+
+    public void setNbrOfConnections(int nbrOfConnections) {
+        this.nbrOfConnections = nbrOfConnections;
+    }
 }

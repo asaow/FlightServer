@@ -63,23 +63,7 @@ public class HibernateQueries {
         return f;
     }
 
-    /**
-     * Hämtar en bokning
-     *
-     * @param bookingId bokningens id
-     * @return en bokning
-     */
-    public Booking getBooking(int bookingId) {
 
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-
-        Booking b = (Booking) session.get(Booking.class, bookingId);
-
-        session.getTransaction().commit();
-        session.close();
-        return b;
-    }
 
     public List<Flight> getFlights() {
 
@@ -94,16 +78,7 @@ public class HibernateQueries {
 
     }
 
-//    public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
-//
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//
-//        List<Flight> flights = (List<Flight>) session.createQuery("FROM Flight WHERE fromAirportCode = '" + fromAirportCode + "'"
-//                + " AND toAirportCode= '" + toAirportCode + "'" + "AND depDate= '" + depDate + "'").list();
-//        session.getTransaction().commit();
-//        return flights;
-//    }
+
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
 
         Session session = sessionFactory.openSession();
@@ -116,16 +91,6 @@ public class HibernateQueries {
         return flights;
     }
 
-//        public List<Flight> getFlightsBySelection(Flight search) {
-//
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//
-//        List<Flight> flights = (List<Flight>) session.createQuery("FROM Flight WHERE fromAirportCode = '" + search.getFromAirportCode() + "'"
-//                + " AND toAirportCode= '" + search.getToAirportCode() + "'" + "AND depDate= '" + search.getDepDate() + "'").list();
-//        session.getTransaction().commit();
-//        return flights;
-//    }
     /**
      * Hämtar alla bokningar
      *
@@ -139,9 +104,27 @@ public class HibernateQueries {
         List<Booking> bookings = session.createCriteria(Booking.class).list();
 
         session.getTransaction().commit();
-        session.close();
+        //session.close();
 
         return bookings;
+    }
+    
+        /**
+     * Hämtar en bokning
+     *
+     * @param bookingId bokningens id
+     * @return en bokning
+     */
+    public Booking getBooking(int bookingId) {
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        Booking b = (Booking) session.get(Booking.class, bookingId);
+
+        session.getTransaction().commit();
+        //session.close();
+        return b;
     }
 
     /**
