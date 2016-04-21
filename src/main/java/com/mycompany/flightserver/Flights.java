@@ -35,14 +35,6 @@ public class Flights {
         return flightService.getFlight(flightId);
     }
 
-//    @GET
-//    @Path("/search")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public List<Flight> getFlightsBySelection(
-//            @PathParam("search") Flight search) {
-//        return flightService.getFlightsBySelection(search);
-//    }    
     @GET
     @Path("{fromAirportCode}/{toAirportCode}/{depDate}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -55,34 +47,3 @@ public class Flights {
         return flightService.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
     }
 }
-
-//    @GET
-//    @Path("{fromAirportCode}/{toAirportCode}/{depDate}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public List<Flight> getFlightsBySelection(
-//            @PathParam("fromAirportCode") String fromAirportCode,
-//            @PathParam("toAirportCode") String toAirportCode,
-//            @PathParam("depDate") String depDate ) {
-//        return flightService.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
-//    }
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public List<Flight> getFlightsByAirports(String from, String to) {
-//        System.out.println("@GET getFlights() inne i flightssss");
-//        return flightService.getFlightsByAirports(from, to);
-//    }
-//Checka flight
-//    @POST
-//    @Consumes({MediaType.APPLICATION_JSON})
-//    @Produces({MediaType.APPLICATION_JSON})
-//    public Flight checkFlight(Flight f) {
-//        
-//        if (f == null)
-//            throw new BadRequestException();    
-//        Flight flight = FlightServices.checkFlight(f);
-//        System.out.print("added question");
-//
-//        return flight;   
-//   }
-

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 
+ *
  * @author Grupp 2
  */
 @Entity
@@ -20,6 +20,10 @@ public class Airport implements Serializable {
     private String code;
     private String name;
     private String city;
+
+    public Airport() {
+
+    }
 
     public String getCity() {
         return city;
@@ -36,15 +40,15 @@ public class Airport implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
-    
-        public String getName() {
+
+    public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -52,28 +56,5 @@ public class Airport implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
- 
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "Airport_Departures") 
-//    @LazyCollection(LazyCollectionOption.FALSE) 
-//    private Collection<Flight> departures = new ArrayList<Flight>();
-//
-//    public Collection<Flight> getArrivals() {
-//        return arrivals;
-//    }
-//
-//    public void setArrivals(Collection<Flight> arrivals) {
-//        this.arrivals = arrivals;
-//    }
-//
-//    public Collection<Flight> getDepartures() {
-//        return departures;
-//    }
-//
-//    public void setDepartures(Collection<Flight> departures) {
-//        this.departures = departures;
-//    }
-    
-   
 }

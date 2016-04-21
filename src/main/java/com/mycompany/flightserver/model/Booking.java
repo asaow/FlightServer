@@ -33,6 +33,10 @@ public class Booking implements Serializable {
     public static final String FIRST_CLASS_TYPE = "FÖRSTA KLASS";
     public static final String BUSINESS_TYPE = "BUSINESSKLASS";
     public static final String ECONOMY_TYPE = "EKONOMIKLASS";
+    
+    public Booking(){
+        
+    }
 
     public String getType() {
         return type;

@@ -63,8 +63,6 @@ public class HibernateQueries {
         return f;
     }
 
-
-
     public List<Flight> getFlights() {
 
         Session session = sessionFactory.openSession();
@@ -77,7 +75,6 @@ public class HibernateQueries {
         return flights;
 
     }
-
 
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
 
@@ -108,8 +105,8 @@ public class HibernateQueries {
 
         return bookings;
     }
-    
-        /**
+
+    /**
      * Hämtar en bokning
      *
      * @param bookingId bokningens id

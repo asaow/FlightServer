@@ -36,11 +36,4 @@ public class Airports {
         return airportService.getAirport(airportId);
 
     }
-
-//    @Path("/{airportId}/flights")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Flights test() {
-//        System.out.println("@Path(/{airportId}/flights, toFlights() inne i Airportssss");
-//        return (new Flights());
-//    }
 }

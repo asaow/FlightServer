@@ -27,15 +27,8 @@ public class FlightServices {
         return hibernateQueries.getFlight(id);
     }
 
-//    public  List<Flight> getFlightsBySelection(Flight search) {
-//        return hibernateQueries.getFlightsBySelection(search);
-//    }
     public List<Flight> getFlightsBySelection(String fromAirportCode, String toAirportCode, String depDate) {
         return hibernateQueries.getFlightsBySelection(fromAirportCode, toAirportCode, depDate);
     }
-    //Checka flight
-//        public Flight checkFlight(Flight f) {
-//        System.out.println("inne i Flightservice");
-//        return hibernateQueries.checkFlight(f);
-//    }
+
 }
